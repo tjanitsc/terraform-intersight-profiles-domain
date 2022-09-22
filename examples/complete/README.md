@@ -13,21 +13,14 @@ Note that this example will create resources. Resources can be destroyed with `t
 
 ### main.tf
 ```hcl
-module "wwpn_pool" {
-  source  = "scotttyso/pools-fc/intersight"
+module "domain_profile" {
+  source  = "terraform-cisco-modules/profiles-domain/intersight"
   version = ">= 1.0.1"
 
-  assignment_order = "sequential"
-  description      = "Demo WWPN Pool"
-  id_blocks = [
-    {
-      from = "0:00:00:25:B5:00:00:00"
-      size = 1000
-    }
-  ]
+  action       = "No-op"
+  description  = "default Domain Profile"
   name         = "default"
   organization = "default"
-  pool_purpose = "WWPN"
 }
 
 ```

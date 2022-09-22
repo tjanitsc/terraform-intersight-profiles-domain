@@ -72,8 +72,8 @@ resource "intersight_fabric_switch_profile" "switch_profiles" {
       moid = length(
         regexall("A", assigned_switch.value)
         ) > 0 ? data.intersight_network_element_summary.fis[element(var.serial_numbers, 0)].results[0].moid : length(
-          regexall("B", assigned_switch.value)
-        ) > 0 ? data.intersight_network_element_summary.fis[element(var.serial_numbers, 1)].results[0].moid : ""
+        regexall("B", assigned_switch.value)
+      ) > 0 ? data.intersight_network_element_summary.fis[element(var.serial_numbers, 1)].results[0].moid : ""
     }
   }
   dynamic "policy_bucket" {

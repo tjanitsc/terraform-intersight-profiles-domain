@@ -1,29 +1,22 @@
 <!-- BEGIN_TF_DOCS -->
-# Terraform Intersight Pools - WWNN or WWPN
-Manages Intersight WWNN or WWPN Pools
+# Terraform Intersight UCS Domain Profiles
+Manages Intersight UCS Domain Profiles
 
 Location in GUI:
-`Pools` » `Create Pool` » `WWNN or WWPN`
+`Profiles` » `UCS Domain Profiles` » `Create UCS Domain Profiles`
 
 ## Example
 
 ### main.tf
 ```hcl
-module "wwpn_pool" {
-  source  = "scotttyso/pools-fc/intersight"
+module "domain_profile" {
+  source  = "terraform-cisco-modules/profiles-domain/intersight"
   version = ">= 1.0.1"
 
-  assignment_order = "sequential"
-  description      = "Demo WWPN Pool"
-  id_blocks = [
-    {
-      from = "0:00:00:25:B5:00:00:00"
-      size = 1000
-    }
-  ]
+  action       = "No-op"
+  description  = "default Domain Profile"
   name         = "default"
   organization = "default"
-  pool_purpose = "WWPN"
 }
 
 ```
@@ -82,7 +75,7 @@ export TF_VAR_secretkey=`cat <secret-key-file-location>`
 Windows
 ```bash
 $env:TF_VAR_apikey="<your-api-key>"
-$env:TF_VAR_secretkey=`cat <secret-key-file-location>`
+$env:TF_VAR_secretkey="<secret-key-file-location>""
 ```
 
 
@@ -103,22 +96,26 @@ $env:TF_VAR_secretkey=`cat <secret-key-file-location>`
 | <a name="input_apikey"></a> [apikey](#input\_apikey) | Intersight API Key. | `string` | n/a | yes |
 | <a name="input_endpoint"></a> [endpoint](#input\_endpoint) | Intersight URL. | `string` | `"https://intersight.com"` | no |
 | <a name="input_secretkey"></a> [secretkey](#input\_secretkey) | Intersight Secret Key. | `string` | n/a | yes |
-| <a name="input_assignment_order"></a> [assignment\_order](#input\_assignment\_order) | Assignment order decides the order in which the next identifier is allocated.<br>  * sequential - Identifiers are assigned in a sequential order.<br>  * default - Assignment order is decided by the system. | `string` | `"default"` | no |
-| <a name="input_description"></a> [description](#input\_description) | Description for the Fiber-Channel Pool. | `string` | `""` | no |
-| <a name="input_id_blocks"></a> [id\_blocks](#input\_id\_blocks) | List of WWxN's Configuration Parameters to Assign to the Fiber-Channel Pool.<br>  * from - Staring WWxN Address.  An Example is "20:00:00:25:B5:00:00:00".<br>  * size - Size of WWxN Pool.  An Example is 1000.<br>  * to - Ending WWxN Address.  An Example is "20:00:00:25:B5:00:03:E7".<br>  * IMPORTANT NOTE: You can only Specify `size` or `to` on initial creation.  This is a limitation of the API. | <pre>list(object(<br>    {<br>      from = string<br>      size = optional(number)<br>      to   = optional(string)<br>    }<br>  ))</pre> | `[]` | no |
-| <a name="input_name"></a> [name](#input\_name) | Name for the Fiber-Channel Pool. | `string` | `"default"` | no |
+| <a name="input_action"></a> [action](#input\_action) | Action to Perform on the Switch Profile Assignment.  Options are {Deploy\|No-op\|Unassign}. | `string` | `"No-op"` | no |
+| <a name="input_description"></a> [description](#input\_description) | Description for the Policy. | `string` | `""` | no |
+| <a name="input_domain_src_template"></a> [domain\_src\_template](#input\_domain\_src\_template) | A reference to a policyAbstractProfile resource. | `string` | `""` | no |
+| <a name="input_domain_type"></a> [domain\_type](#input\_domain\_type) | Defines the type of the profile. Accepted values are instance or template. | `string` | `"instance"` | no |
+| <a name="input_name"></a> [name](#input\_name) | Name for the Policy. | `string` | `"default"` | no |
 | <a name="input_organization"></a> [organization](#input\_organization) | Intersight Organization Name to Apply Policy to.  https://intersight.com/an/settings/organizations/. | `string` | `"default"` | no |
-| <a name="input_pool_purpose"></a> [pool\_purpose](#input\_pool\_purpose) | What type of Fiber-Channel Pool is this.  Options are:<br>  * WWNN<br>  * WWPN | `string` | `"WWPN"` | no |
+| <a name="input_policy_bucket"></a> [policy\_bucket](#input\_policy\_bucket) | List of Policies to Assign to the Profile. | `list(map(string))` | `[]` | no |
+| <a name="input_serial_numbers"></a> [serial\_numbers](#input\_serial\_numbers) | List of Serial Numbers for the Domain Profile.  Be sure to put the Serial Numbers in Order for A versus B. | `list(string)` | `[]` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | List of Tag Attributes to Assign to the Policy. | `list(map(string))` | `[]` | no |
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_moid"></a> [moid](#output\_moid) | WWxN Pool Managed Object ID (moid). |
+| <a name="output_moid"></a> [moid](#output\_moid) | UCS Domain Cluster Profile Managed Object ID (moid). |
 ## Resources
 
 | Name | Type |
 |------|------|
-| [intersight_fcpool_pool.fc_pool](https://registry.terraform.io/providers/CiscoDevNet/intersight/latest/docs/resources/fcpool_pool) | resource |
+| [intersight_fabric_switch_cluster_profile.domain_profile](https://registry.terraform.io/providers/CiscoDevNet/intersight/latest/docs/resources/fabric_switch_cluster_profile) | resource |
+| [intersight_fabric_switch_profile.switch_profiles](https://registry.terraform.io/providers/CiscoDevNet/intersight/latest/docs/resources/fabric_switch_profile) | resource |
+| [intersight_network_element_summary.fis](https://registry.terraform.io/providers/CiscoDevNet/intersight/latest/docs/data-sources/network_element_summary) | data source |
 | [intersight_organization_organization.org_moid](https://registry.terraform.io/providers/CiscoDevNet/intersight/latest/docs/data-sources/organization_organization) | data source |
 <!-- END_TF_DOCS -->
