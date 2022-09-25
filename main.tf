@@ -5,7 +5,12 @@
 #____________________________________________________________
 
 data "intersight_organization_organization" "org_moid" {
-  name = var.organization
+  for_each = {
+    for v in [var.organization] : v => v if length(
+      regexall("[[:xdigit:]]{24}", var.organization)
+    ) == 0
+  }
+  name = each.value
 }
 
 data "intersight_network_element_summary" "fis" {
@@ -28,7 +33,11 @@ resource "intersight_fabric_switch_cluster_profile" "domain_profile" {
   name        = var.name
   type        = var.domain_type
   organization {
-    moid        = data.intersight_organization_organization.org_moid.results[0].moid
+    moid = length(
+      regexall("[[:xdigit:]]{24}", var.organization)
+      ) > 0 ? var.organization : data.intersight_organization_organization.org_moid[
+      var.organization].results[0
+    ].moid
     object_type = "organization.Organization"
   }
   dynamic "src_template" {
