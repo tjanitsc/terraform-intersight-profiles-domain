@@ -15,15 +15,19 @@ variable "description" {
   type        = string
 }
 
-variable "domain_src_template" {
+variable "domain_template" {
   default     = ""
-  description = "A reference to a policyAbstractProfile resource."
+  description = "NOT SUPPORTED TODAY.  The Name of the Domain Template to Assign."
   type        = string
 }
 
 variable "domain_type" {
   default     = "instance"
-  description = "Defines the type of the profile. Accepted values are instance or template."
+  description = <<-EOT
+    Defines the type of the profile. Accepted values are:
+    * instance
+    * template
+  EOT
   type        = string
 }
 

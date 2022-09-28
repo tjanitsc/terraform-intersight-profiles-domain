@@ -40,12 +40,12 @@ resource "intersight_fabric_switch_cluster_profile" "domain_profile" {
     ].moid
     object_type = "organization.Organization"
   }
-  dynamic "src_template" {
-    for_each = toset(compact([var.domain_src_template]))
-    content {
-      moid = src_template.value.moid
-    }
-  }
+  # dynamic "src_template" {
+  #   for_each = { for v in compact([var.domain_template]) : v => v }
+  #   content {
+  #     moid = src_template.value.moid
+  #   }
+  # }
   dynamic "tags" {
     for_each = var.tags
     content {

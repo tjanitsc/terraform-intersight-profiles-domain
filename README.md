@@ -100,8 +100,8 @@ $env:TF_VAR_secretkey="<secret-key-file-location>""
 | <a name="input_secretkey"></a> [secretkey](#input\_secretkey) | Intersight Secret Key. | `string` | n/a | yes |
 | <a name="input_action"></a> [action](#input\_action) | Action to Perform on the Switch Profile Assignment.  Options are {Deploy\|No-op\|Unassign}. | `string` | `"No-op"` | no |
 | <a name="input_description"></a> [description](#input\_description) | Description for the Policy. | `string` | `""` | no |
-| <a name="input_domain_src_template"></a> [domain\_src\_template](#input\_domain\_src\_template) | A reference to a policyAbstractProfile resource. | `string` | `""` | no |
-| <a name="input_domain_type"></a> [domain\_type](#input\_domain\_type) | Defines the type of the profile. Accepted values are instance or template. | `string` | `"instance"` | no |
+| <a name="input_domain_template"></a> [domain\_template](#input\_domain\_template) | NOT SUPPORTED TODAY.  The Name of the Domain Template to Assign. | `string` | `""` | no |
+| <a name="input_domain_type"></a> [domain\_type](#input\_domain\_type) | Defines the type of the profile. Accepted values are:<br>* instance<br>* template | `string` | `"instance"` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name for the Policy. | `string` | `"default"` | no |
 | <a name="input_organization"></a> [organization](#input\_organization) | Intersight Organization Name to Apply Policy to.  https://intersight.com/an/settings/organizations/. | `string` | `"default"` | no |
 | <a name="input_policy_bucket"></a> [policy\_bucket](#input\_policy\_bucket) | List of Policies to Assign to the Profile. | `list(map(string))` | `[]` | no |
@@ -111,7 +111,7 @@ $env:TF_VAR_secretkey="<secret-key-file-location>""
 
 | Name | Description |
 |------|-------------|
-| <a name="output_moid"></a> [moid](#output\_moid) | UCS Domain Cluster Profile Managed Object ID (moid). |
+| <a name="output_domain_profile"></a> [domain\_profile](#output\_domain\_profile) | UCS Domain Cluster Profile Managed Object ID (moid). |
 ## Resources
 
 | Name | Type |
