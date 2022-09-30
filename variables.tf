@@ -9,6 +9,12 @@ variable "action" {
   type        = string
 }
 
+variable "destroy" {
+  default     = false
+  description = "Flag Used when running a terraform destroy."
+  type        = bool
+}
+
 variable "description" {
   default     = ""
   description = "Description for the Policy."
