@@ -8,7 +8,9 @@ output "domain_profile" {
   value = {
     name = intersight_fabric_switch_cluster_profile.domain_profile.name
     moid = intersight_fabric_switch_cluster_profile.domain_profile.moid
-    A    = var.destroy == false ? intersight_fabric_switch_profile.switch_profiles["A"].moid : ""
-    B    = var.destroy == false ? intersight_fabric_switch_profile.switch_profiles["B"].moid : ""
+    A = length(intersight_fabric_switch_profile.switch_profiles
+    ) > 0 ? intersight_fabric_switch_profile.switch_profiles["A"].moid : ""
+    B = length(intersight_fabric_switch_profile.switch_profiles
+    ) > 0 ? intersight_fabric_switch_profile.switch_profiles["B"].moid : ""
   }
 }
