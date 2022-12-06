@@ -12,6 +12,7 @@ resource "intersight_server_profile" "server1" {
 }
 
 variable "organization" {
+   default = "default"
    type = string
    description = "<value for organization>"
 }
