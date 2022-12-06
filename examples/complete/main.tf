@@ -10,7 +10,6 @@ resource "intersight_server_profile" "server" {
   }
   
   target_platform = "Standalone"
-  action          = "No-op"
 }
 
 #variable "organization" {
