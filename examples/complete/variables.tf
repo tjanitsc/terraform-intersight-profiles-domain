@@ -17,3 +17,8 @@ variable "secretkey" {
   type        = string
 }
 
+variable "organization" {
+  default     = "default"
+  description = ""
+  type        = string
+}
