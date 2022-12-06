@@ -1,10 +1,17 @@
-module "domain_profile" {
-  source  = "terraform-cisco-modules/profiles-domain/intersight"
-  version = ">= 1.0.1"
-
-  action       = "No-op"
-  description  = "default Domain Profile"
-  name         = "default"
-  organization = "default"
+resource "intersight_server_profile" "server1" {
+  name   = "server1"
+  action = "No-op"
+  tags {
+    key   = "server"
+    value = "demo"
+  }
+  organization {
+    object_type = "organization.Organization"
+    moid        = var.organization
+  }
 }
 
+variable "organization" {
+   type = string
+   description = "<value for organization>"
+}
