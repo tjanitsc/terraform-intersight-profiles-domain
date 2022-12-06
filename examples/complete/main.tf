@@ -4,11 +4,10 @@ resource "intersight_server_profile" "server" {
   target_platform = "Standalone"
   organization {
     object_type = "organization.Organization"
-    moid        = var.organization
+    moid        = data.intersight_organization_organization.org_data.results[0].moid
   }
 }
-
-variable "organization" {
-   type = string
-   description = "<value for organization>"
-}
+#variable "organization" {
+#   type = string
+#   description = "<value for organization>"
+#}
