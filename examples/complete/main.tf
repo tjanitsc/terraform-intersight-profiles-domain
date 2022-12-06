@@ -6,8 +6,7 @@ resource "intersight_server_profile" "server1" {
     value = "demo"
   }
   organization {
-    object_type = "organization.Organization"
-    moid        = var.organization
+    object_type = "default"
   }
 }
 
