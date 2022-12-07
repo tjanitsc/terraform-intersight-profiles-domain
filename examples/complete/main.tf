@@ -15,7 +15,7 @@ resource "intersight_server_profile" "server1" {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org_data.results[0].moid
     }
-}
+  }
 
 resource "intersight_server_profile" "server2" {
   name   = "tf_server2"
