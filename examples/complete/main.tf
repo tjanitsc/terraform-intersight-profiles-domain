@@ -44,7 +44,7 @@ resource "intersight_server_profile" "server5" {
 }
 
 
-ressource "intersight_ntp_policy" "ntpterraformtest" {
+resource "intersight_ntp_policy" "ntpterraformtest" {
   name = "ntp-terraform-test"
   enabled = "true"
   ntp_servers =[
