@@ -1,5 +1,4 @@
 
-
 resource "intersight_server_profile" "server2" {
   name   = "tf_server2"
   action = "No-op"
@@ -43,6 +42,36 @@ resource "intersight_server_profile" "server5" {
     moid        = data.intersight_organization_organization.org_data.results[0].moid
   }
 }
+
+
+ressource "intersight_ntp_policy" "ntpterraformtest" {
+  name = "ntp-terraform-test"
+  enabled = "true"
+  ntp_servers =[
+    "0.de.pool.ntp.org",
+    "1.de.pool.ntp.org",
+    "2.de.pool.ntp.org"
+    ]
+  timezone = "Europe/Berlin"
+  
+  tags {
+    key = "demo"
+    value = "Terraform"
+  }
+  
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org_data.results[0].moid
+  }
+  
+  profiles [
+    {
+      moid = intersight_server_profile.server2.moid
+      object_type = "server.Profile"
+    }
+   ]
+}
+
 
 data "intersight_organization_organization" "org_data" {
   name = var.org_name
