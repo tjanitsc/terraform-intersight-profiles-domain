@@ -6,9 +6,9 @@ resource "intersight_server_profile" "server1" {
     moid = "638f438e77696e2d3015928a"
     object_type = "server.ProfileTemplate"
   }
-  bios_policy {
-      moid        = "638f0d3e6275722d30618579"
-      object_type = "bios.Policy"
+  boot_order_policy {
+      moid        = "638f0d476275722d30618675"
+      object_type = "boot.PrecisionPolicy"
       }
   organization {
     object_type = "organization.Organization"
