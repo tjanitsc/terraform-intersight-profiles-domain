@@ -4,6 +4,7 @@ variable "apikey" {
   type        = string
 }
 
+
 variable "endpoint" {
   default     = "https://intersight.com"
   description = "Intersight URL."
