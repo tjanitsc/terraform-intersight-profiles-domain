@@ -18,7 +18,7 @@ variable "secretkey" {
 }
 
 variable "src_template" {
-  default     = []
+  default     = [Standalone_ServerProfileTemplate]
   description = "A reference to a policyAbstractProfile resource.."
   type        = set(string)
 }
