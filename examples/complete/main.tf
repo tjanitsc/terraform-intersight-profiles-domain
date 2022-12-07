@@ -6,7 +6,7 @@ resource "intersight_server_profile" "server1" {
     moid = "638f438e77696e2d3015928a"
     object_type = "server.ProfileTemplate"
   }
-  PolicyBucket: [
+  Policy_Bucket: [
     {
       "ClassId": "mo.MoRef",
       "Moid": "638f0da37b132b5cc3afe78e",
