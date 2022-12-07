@@ -77,7 +77,7 @@ variable "policy_bucket" {
   default     = [
   {
       # BIOS Policy
-      moid        = module.bios_example.moid
+      moid        = "638f0d3e6275722d30618579"
       object_type = "bios.Policy"
     },
     {
