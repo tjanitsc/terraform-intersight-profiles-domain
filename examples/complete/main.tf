@@ -4,6 +4,7 @@ resource "intersight_server_profile" "server1" {
   target_platform = "Standalone"
   src_template {
     moid = "638f438e77696e2d3015928a"
+    object_type = "server.ProfileTemplate"
   }
   organization {
     object_type = "organization.Organization"
