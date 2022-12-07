@@ -6,6 +6,7 @@ resource "intersight_server_profile" "server1" {
     moid        = data.intersight_organization_organization.org_data.results[0].moid
     object_type = "organization.Organization"
     selector    = "Standalone_ServerProfileTemplate"
+    }
   organization {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org_data.results[0].moid
