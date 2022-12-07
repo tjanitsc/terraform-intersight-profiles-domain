@@ -1,6 +1,6 @@
 
 resource "intersight_server_profile" "server1" {
-  name   = "tf_server2"
+  name   = "tf_server1"
   action = "No-op"
   target_platform = "Standalone"
   #src_template = "Standalone_ServerProfileTemplate"
