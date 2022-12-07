@@ -6,10 +6,12 @@ resource "intersight_server_profile" "server1" {
     moid = "638f438e77696e2d3015928a"
     object_type = "server.ProfileTemplate"
   }
-  virtual_media_policy {
-      moid        = "638f0d526275722d306187a3"
-      object_type = "vmedia.Policy"
+  policy_bucket {
+      virtual_media_policy {
+         moid        = "638f0d526275722d306187a3"
+         object_type = "vmedia.Policy"
       }
+  }
   organization {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org_data.results[0].moid
