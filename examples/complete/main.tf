@@ -1,4 +1,15 @@
 
+resource "intersight_server_profile" "server1" {
+  name   = "tf_server2"
+  action = "No-op"
+  target_platform = "Standalone"
+  #src_template = "Standalone_ServerProfileTemplate"
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org_data.results[0].moid
+  }
+}
+
 resource "intersight_server_profile" "server2" {
   name   = "tf_server2"
   action = "No-op"
@@ -64,17 +75,11 @@ resource "intersight_ntp_policy" "ntpterraformtest" {
     moid        = data.intersight_organization_organization.org_data.results[0].moid
   }
   
-  profiles {
-    [
-     {
+profiles {
+     
       moid = intersight_server_profile.server2.moid
       object_type = "server.Profile"
-     },
-     {
-      moid = intersight_server_profile.server3.moid
-      object_type = "server.Profile"
-     },
-    ]
+    
   }  
 }
 
