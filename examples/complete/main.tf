@@ -1,25 +1,4 @@
 
-resource "intersight_server_profile" "server1" {
-  name   = "tf_server1"
-  action = "No-op"
-  target_platform = "Standalone"
-  src_template {
-    moid = "638f438e77696e2d3015928a"
-    object_type = "server.ProfileTemplate"
-    }
-  
-  policy_bucket [
-     {
-      object_type = "vmedia.Policy"
-      moid = "638f0d526275722d306187a3"
-     }  
-    ]
-  
-  organization {
-    object_type = "organization.Organization"
-    moid        = data.intersight_organization_organization.org_data.results[0].moid
-    }
-  }
 
 resource "intersight_server_profile" "server2" {
   name   = "tf_server2"
