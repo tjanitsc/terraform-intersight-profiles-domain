@@ -77,10 +77,18 @@ resource "intersight_ntp_policy" "ntpterraformtest" {
   
 profiles {
      
-      moid = intersight_server_profile.server2.moid
+      moid = intersight_server_profile.server1.moid
       object_type = "server.Profile"
     
   }  
+
+profiles {
+     
+      moid = intersight_server_profile.server2.moid
+      object_type = "server.Profile"
+    
+  }   
+  
 }
 
 
