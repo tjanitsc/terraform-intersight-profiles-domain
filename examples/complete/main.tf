@@ -10,6 +10,13 @@ resource "intersight_server_profile" "server1" {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org_data.results[0].moid
   }
+  dynamic "policy_bucket" {
+    for_each = [for s in var.policy_bucket : s if s != null]
+    content {
+      moid        = policy_bucket.value.moid
+      object_type = policy_bucket.value.object_type
+    }
+  }
 }
 
 resource "intersight_server_profile" "server2" {
