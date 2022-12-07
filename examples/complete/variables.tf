@@ -17,6 +17,12 @@ variable "secretkey" {
   type        = string
 }
 
+variable "src-template" {
+  type        = string
+  description = "Name of the Server Profile Template"
+  default     = "Standalone_ServerProfileTemplate"
+}
+
 #variable "organization" {
 #  default     = "default"
 #  description = ""
