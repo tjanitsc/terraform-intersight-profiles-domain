@@ -11,7 +11,8 @@ resource "intersight_server_profile" "server1" {
     content {
       moid        = policy_bucket.value.moid
       object_type = policy_bucket.value.object_type
-    }
+     }
+   }
   }
   organization {
     object_type = "organization.Organization"
