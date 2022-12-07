@@ -6,13 +6,10 @@ resource "intersight_server_profile" "server1" {
     moid = "638f438e77696e2d3015928a"
     object_type = "server.ProfileTemplate"
   }
-  dynamic "policy_bucket" {
-    for_each = [for s in var.policy_bucket : s if s != null]
-    content {
-      moid        = policy_bucket.value.moid
-      object_type = policy_bucket.value.object_type
+  bios_policy {
+      moid        = "638f0d3e6275722d30618579"
+      object_type = "bios.Policy"
       }
-    }
   organization {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org_data.results[0].moid
