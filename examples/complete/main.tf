@@ -2,7 +2,12 @@ resource "intersight_server_profile" "server1" {
   name   = "tf_server1"
   action = "No-op"
   target_platform = "Standalone"
-  src_template = "Standalone_ServerProfileTemplate"
+  dynamic "src_template" {
+    for_each = var.src_template
+    content {
+      moid = src_template.value
+    }
+  }
   organization {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org_data.results[0].moid
