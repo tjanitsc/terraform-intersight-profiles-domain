@@ -73,6 +73,12 @@ variable "org_name" {
   default     = "default"
 }
 
+variable "policy_bucket" {
+  default     = []
+  description = "List of Policies to Assign to the Profile."
+  type        = list(map(string))
+}  
+ 
 policy_bucket = [
     {
       # BIOS Policy
