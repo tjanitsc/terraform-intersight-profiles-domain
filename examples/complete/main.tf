@@ -82,47 +82,42 @@ variable "policy_bucket" {
     },
     {
       # Boot Policy
-      moid        = module.boot_uefi_local_disk.moid
+      moid        = "638f0d476275722d30618675"
       object_type = "boot.PrecisionPolicy"
     },
     {
       # IPMI over LAN Policy
-      moid        = module.ipmi_example.moid
+      moid        = "638f0d4a6275722d306186bb"
       object_type = "ipmioverlan.Policy"
     },
     {
-      # IMC Access Policy
-      moid        = module.imc_access_example.moid
-      object_type = "access.Policy"
-    },
-    {
       # LAN Connectivity Policy
-      moid        = module.lan_connectivity_example.moid
+      moid        = "638f0d7e7b132b5cc3afe2e9"
       object_type = "vnic.LanConnectivityPolicy"
     },
     {
       # Local user Policy
-      moid        = module.local_user_policy_example.moid
+      moid        = "638f0d496275722d30618692"
       object_type = "iam.EndPointUserPolicy"
     },
     {
       # SAN Connectivity Policy
-      moid        = module.san_connectivity.moid
+      moid        = "638f0da37b132b5cc3afe78e"
       object_type = "vnic.SanConnectivityPolicy"
     },
     {
       # SD Card Policy
-      moid        = module.sd_card_example.moid
+      moid        = "638f0d55656f6e2d305a11f1"
       object_type = "sdcard.Policy"
     },
     {
       # Serial over LAN Policy
-      moid        = module.sol_example.moid
+      moid        = "638f0d516275722d30618771"
       object_type = "sol.Policy"
     },
     {
       # SNMP Policy
-      moid        = module.snmp_example.moid
+      moid        = "638f0d506275722d30618764"
       object_type = "snmp.Policy"
     },
     # {
@@ -132,17 +127,17 @@ variable "policy_bucket" {
     # },
     {
       # Syslog Policy
-      moid        = module.syslog_example.moid
+      moid        = "638f0d536275722d306187ed"
       object_type = "syslog.Policy"
     },
     {
       # Virtual KVM Policy
-      moid        = module.kvm_example.moid
+      moid        = "638f0d4b6275722d306186dc"
       object_type = "kvm.Policy"
     },
     {
       # Virtual Media Policy
-      moid        = module.vmedia_example_1.moid
+      moid        = "638f0d526275722d306187a3"
       object_type = "vmedia.Policy"
     }
     ]
