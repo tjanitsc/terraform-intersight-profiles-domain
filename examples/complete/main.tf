@@ -74,13 +74,8 @@ variable "org_name" {
 }
 
 variable "policy_bucket" {
-  default     = []
-  description = "List of Policies to Assign to the Profile."
-  type        = list(map(string))
-}  
- 
-policy_bucket = [
-    {
+  default     = [
+  {
       # BIOS Policy
       moid        = module.bios_example.moid
       object_type = "bios.Policy"
@@ -149,8 +144,13 @@ policy_bucket = [
       # Virtual Media Policy
       moid        = module.vmedia_example_1.moid
       object_type = "vmedia.Policy"
-    },
-  ]
+    }
+    ]
+  description = "List of Policies to Assign to the Profile."
+  type        = list(map(string))
+}  
+ 
+
 
 #variable "organization" {
 #   type = string
