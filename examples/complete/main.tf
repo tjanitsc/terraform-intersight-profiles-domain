@@ -6,12 +6,25 @@ resource "intersight_server_profile" "server1" {
     moid = "638f438e77696e2d3015928a"
     object_type = "server.ProfileTemplate"
   }
-  policy_bucket {
-      virtual_media_policy {
-         moid        = "638f0d526275722d306187a3"
-         object_type = "vmedia.Policy"
-      }
-  }
+  "PolicyBucket": [
+    {
+      "ClassId": "mo.MoRef",
+      "Moid": "638f0da37b132b5cc3afe78e",
+      "ObjectType": "vnic.SanConnectivityPolicy",
+      "link": "https://www.intersight.com/api/v1/vnic/SanConnectivityPolicies/638f0da37b132b5cc3afe78e"
+    },
+    {
+      "ClassId": "mo.MoRef",
+      "Moid": "638f0d7e7b132b5cc3afe2e9",
+      "ObjectType": "vnic.LanConnectivityPolicy",
+      "link": "https://www.intersight.com/api/v1/vnic/LanConnectivityPolicies/638f0d7e7b132b5cc3afe2e9"
+    },
+    {
+      "ClassId": "mo.MoRef",
+      "Moid": "638f0d536275722d306187ed",
+      "ObjectType": "syslog.Policy",
+      "link": "https://www.intersight.com/api/v1/syslog/Policies/638f0d536275722d306187ed"
+    }
   organization {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org_data.results[0].moid
