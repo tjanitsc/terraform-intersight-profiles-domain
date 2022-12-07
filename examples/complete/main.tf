@@ -68,12 +68,6 @@ variable "org_name" {
   default     = "default"
 }
 
-variable "src-template" {
-  type        = string
-  description = "Name of the Server Profile Template"
-  default     = "Standalone_ServerProfileTemplate"
-}
-
 #variable "organization" {
 #   type = string
 #   description = "<value for organization>"
