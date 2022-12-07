@@ -17,7 +17,7 @@ resource "intersight_server_profile" "server2" {
   name   = "tf_server2"
   action = "No-op"
   target_platform = "Standalone"
-  src_template = "Standalone_ServerProfileTemplate"
+  #src_template = "Standalone_ServerProfileTemplate"
   organization {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org_data.results[0].moid
@@ -28,7 +28,7 @@ resource "intersight_server_profile" "server3" {
   name   = "tf_server3"
   action = "No-op"
   target_platform = "Standalone"
-  src_template = "Standalone_ServerProfileTemplate"
+  #src_template = "Standalone_ServerProfileTemplate"
   organization {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org_data.results[0].moid
@@ -39,7 +39,7 @@ resource "intersight_server_profile" "server4" {
   name   = "tf_server4"
   action = "No-op"
   target_platform = "Standalone"
-  src_template = "Standalone_ServerProfileTemplate"
+  #src_template = "Standalone_ServerProfileTemplate"
   organization {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org_data.results[0].moid
@@ -50,7 +50,7 @@ resource "intersight_server_profile" "server5" {
   name   = "tf_server5"
   action = "No-op"
   target_platform = "Standalone"
-  src_template = "Standalone_ServerProfileTemplate"
+  #src_template = "Standalone_ServerProfileTemplate"
   organization {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org_data.results[0].moid
