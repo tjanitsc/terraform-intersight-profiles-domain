@@ -25,6 +25,7 @@ resource "intersight_server_profile" "server1" {
       "ObjectType": "syslog.Policy",
       "link": "https://www.intersight.com/api/v1/syslog/Policies/638f0d536275722d306187ed"
     }
+   ]
   organization {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org_data.results[0].moid
